@@ -3,13 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Live Camera Feed with Captioning</title>
+    <title>Live Camera Feed with Captions</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <h1>Live Camera Feed with Real-Time Captioning</h1>
-    <video id="cameraFeed" autoplay playsinline></video>
-    <p id="captionText">Caption: Loading...</p>
-    <p id="error-message" style="color: red;"></p>
+    <div class="container">
+        <h1>Live Camera Feed with Captioning</h1>
+        <!-- Video Feed Container -->
+        <div class="video-container">
+            <video id="cameraFeed" autoplay playsinline></video>
+            <!-- Real-time Captions Overlay -->
+            <div class="caption-box">
+                <h2 id="captionText">Waiting for caption...</h2>
+            </div>
+        </div>
+        <p id="error-message" class="error"></p>
+    </div>
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
