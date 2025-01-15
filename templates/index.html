@@ -8,17 +8,22 @@
 </head>
 <body>
     <div class="container">
-        <h1>Live Camera Feed with Captioning</h1>
-        <!-- Video Feed Container -->
+        <h1>Live Camera Real-Time Recognition by Lidor Eliya</h1>
+        
+        <!-- Video Feed Section -->
         <div class="video-container">
             <video id="cameraFeed" autoplay playsinline></video>
-            <!-- Real-time Captions Overlay -->
-            <div class="caption-box">
-                <h2 id="captionText">Waiting for caption...</h2>
-            </div>
         </div>
-        <p id="error-message" class="error"></p>
+
+        <!-- Caption Section -->
+        <div class="caption-box">
+            <p><strong>Object Detection:</strong></p>
+            <p id="objectText">Detecting objects...</p>
+            <p><strong>Image Caption:</strong></p>
+            <p id="captionText">Generating captions...</p>
+        </div>
     </div>
+
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
