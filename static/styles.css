@@ -1,4 +1,4 @@
-/* General Styles */
+/* General Styling with Background Image */
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
@@ -7,25 +7,30 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: #121212;
+    background: url("background.jpg") no-repeat center center fixed;
+    background-size: cover;
     color: white;
     text-align: center;
+    backdrop-filter: blur(3px); /* Slight blur effect */
 }
 
 /* Container Styling */
 .container {
-    max-width: 800px;
-    width: 100%;
+    max-width: 700px;
+    text-align: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.7);  /* Semi-transparent background */
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
 }
 
 /* Video Styling */
 .video-container {
-    position: relative;
-    width: 100%;
-    border-radius: 15px;
+    border: 3px solid #007BFF;
+    border-radius: 10px;
     overflow: hidden;
-    border: 5px solid #00FFAA;
-    box-shadow: 0 0 15px rgba(0, 255, 170, 0.5);
+    margin-bottom: 20px;
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.3);
 }
 
 video {
@@ -35,15 +40,18 @@ video {
 
 /* Caption Box Styling */
 .caption-box {
-    position: absolute;
-    bottom: 10px;
-    left: 0;
-    right: 0;
+    background: rgba(0, 0, 0, 0.8);  /* Dark semi-transparent background */
     padding: 15px;
-    background: rgba(0, 0, 0, 0.7);
-    border-top: 2px solid #00FFAA;
+    border-radius: 10px;
+    border: 2px solid #007BFF;
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.1);
+}
+
+.caption-box p {
+    font-size: 1.4rem;
+    margin: 10px 0;
+    font-weight: bold;
     color: white;
-    font-size: 1.2rem;
 }
 
 /* Error Message Styling */
