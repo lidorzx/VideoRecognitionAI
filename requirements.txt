@@ -1,0 +1,8 @@
+flask
+ultralytics
+transformers
+opencv-python
+torch
+torchvision
+torchaudio
+
