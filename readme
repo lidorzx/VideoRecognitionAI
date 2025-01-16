@@ -1,0 +1,10 @@
+# First Create a Python environment -
+python -m venv video_recog
+source video_recog/bin/activate
+--------------------------------------
+static/styles.css - Defines the visual styling of the webpage
+models/yolov8n.pt - Stores the YOLOv8 model file
+templates/index.html - Displays the UI.
+static/script.js - Captures frames, sends them to Flask, and updates captions dynamically.
+app.py - Handles requests and serves the frontend.
+video_captioning.py - Processes frames using YOLO and BLIP-2 models.
