@@ -15,7 +15,7 @@ This repository contains a web-based video recognition application leveraging YO
 
 2. Navigate into the directory:
    ```bash
-   cd video_recog
+   cd VideoRecognitionAI
    ```
 
 ### **Step 2: Create a Python Environment**
