@@ -108,12 +108,6 @@ We welcome contributions! Feel free to submit issues or pull requests to improve
 
 ---
 
-## **License**
-
-This project is licensed under the MIT License.
-
----
-
 ### **Author**
 
 Lidor Eliya
