@@ -108,6 +108,21 @@ We welcome contributions! Feel free to submit issues or pull requests to improve
 
 ---
 
+## **Tags**
+
+- `video-recognition`
+- `object-detection`
+- `YOLOv8`
+- `real-time-processing`
+- `BLIP-2`
+- `machine-learning`
+- `AI`
+- `deep-learning`
+- `python`
+- `open-source`
+
+---
+
 ### **Author**
 
 Lidor Eliya
