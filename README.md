@@ -65,13 +65,13 @@ This repository contains a web-based video recognition application leveraging YO
 
 You can select from various YOLOv8 models based on your resource requirements and performance needs:
 
-| Model        | Description                          |
-| ------------ | ------------------------------------ |
-| `yolov8n.pt` | Quickest, but least accurate.        |
-| `yolov8s.pt` | Small, fast, and less accurate.      |
-| `yolov8m.pt` | Medium, balances speed and accuracy. |
-| `yolov8l.pt` | Large, more accurate but slower.     |
-| `yolov8x.pt` | Largest, most accurate, and slowest. |
+| Model        | Description                          | Download Link |
+| ------------ | ------------------------------------ | ------------- |
+| `yolov8n.pt` | Quickest, but least accurate.        | [Download](https://huggingface.co/Ultralytics/YOLOv8/blob/main/yolov8n.pt) |
+| `yolov8s.pt` | Small, fast, and less accurate.      | [Download](https://huggingface.co/Ultralytics/YOLOv8/blob/main/yolov8s.pt) |
+| `yolov8m.pt` | Medium, balances speed and accuracy. | [Download](https://huggingface.co/Ultralytics/YOLOv8/blob/main/yolov8m.pt) |
+| `yolov8l.pt` | Large, more accurate but slower.     | [Download](https://huggingface.co/Ultralytics/YOLOv8/blob/main/yolov8l.pt) |
+| `yolov8x.pt` | Largest, most accurate, and slowest. | [Download](https://huggingface.co/Ultralytics/YOLOv8/blob/main/yolov8x.pt) |
 
 To change the model, replace `models/yolov8n.pt` with the desired model file.
 
@@ -108,7 +108,9 @@ We welcome contributions! Feel free to submit issues or pull requests to improve
 
 ---
 
+## **License**
 
+This project is licensed under the MIT License.
 
 ---
 
