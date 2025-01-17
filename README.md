@@ -10,7 +10,7 @@ This repository contains a web-based video recognition application leveraging YO
 
 1. Clone the repository:
    ```bash
-   git clone **https://github.com/lidorzx/video_recog.git**
+   git clone https://github.com/lidorzx/video_recog.git
    ```
 
 2. Navigate into the directory:
