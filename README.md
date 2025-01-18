@@ -41,8 +41,14 @@ This repository contains a web-based video recognition application leveraging YO
    python app.py
    ```
 ### **Possible: Using Docker**
+   ```bash
+ 6. docker build docker build -t video_recognition:latest .
+ 7. docker run -p 5000:5000 video_recognition:latest
+   ```
 
-5. Start the application:
+### **Possible: Using Docker Compose  **
+
+7. Using Docker Compose
    ```bash
    docker compose up
    ```
