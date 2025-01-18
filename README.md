@@ -46,9 +46,9 @@ This repository contains a web-based video recognition application leveraging YO
  Run the Container : docker run -p 5000:5000 video_recognition:latest
    ```
 
-### **Possible: Using Docker Compose  **
+### Possible: Using Docker Compose 
 
-7. Using Docker Compose
+ Using Docker-Compose
    ```bash
    docker compose up
    ```
