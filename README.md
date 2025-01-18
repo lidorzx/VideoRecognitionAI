@@ -44,7 +44,6 @@ This repository contains a web-based video recognition application leveraging YO
 
 5. Start the application:
    ```bash
-   docker build -t video_recognition .
    docker compose up
    ```
 ---
