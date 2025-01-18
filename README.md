@@ -42,7 +42,7 @@ This repository contains a web-based video recognition application leveraging YO
    ```
 ### **Possible: Using Docker**
    ```bash
- Create the Image  : docker build -t video_recognition:latest .
+ Build the Image  : docker build -t video_recognition:latest .
  Run the Container : docker run -p 5000:5000 video_recognition:latest
    ```
 
