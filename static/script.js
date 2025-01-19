@@ -2,6 +2,10 @@ document.addEventListener("DOMContentLoaded", async function () {
     const videoElement = document.getElementById('cameraFeed');
     const captionText = document.getElementById('captionText');
     const errorMessage = document.getElementById('error-message');
+    const speedControl = document.getElementById('speedControl');
+    const speedValue = document.getElementById('speedValue');
+
+    let captureInterval = 3000;  // Default interval set to 5 seconds
 
     // Start the camera feed
     async function startCamera() {
@@ -15,31 +19,42 @@ document.addEventListener("DOMContentLoaded", async function () {
         }
     }
 
-    // Send frames to the Flask server every 1 second for analysis
-    async function sendFramesToServer(videoElement) {
+    // Function to send frames to the Flask server
+    function sendFramesToServer(videoElement) {
         const canvas = document.createElement('canvas');
         const context = canvas.getContext('2d');
 
-        setInterval(async () => {
+        function captureFrame() {
             canvas.width = videoElement.videoWidth;
             canvas.height = videoElement.videoHeight;
             context.drawImage(videoElement, 0, 0, canvas.width, canvas.height);
 
             const imageData = canvas.toDataURL('image/jpeg');
 
-            try {
-                const response = await fetch('/process_frame', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ image: imageData })
-                });
-
-                const result = await response.json();
+            fetch('/process_frame', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ image: imageData })
+            })
+            .then(response => response.json())
+            .then(result => {
                 captionText.innerText = `Caption: ${result.caption}`;
-            } catch (error) {
+            })
+            .catch(error => {
                 console.error("❌ Error sending frames:", error);
-            }
-        }, 1000); // Sends a frame every second
+            });
+        }
+
+        // Start the interval with the default delay
+        let intervalID = setInterval(captureFrame, captureInterval);
+
+        // Event listener for speed control input (dynamically change interval)
+        speedControl.addEventListener('input', function () {
+            clearInterval(intervalID);
+            captureInterval = parseInt(speedControl.value);
+            speedValue.innerText = `${captureInterval / 1000} seconds`;
+            intervalID = setInterval(captureFrame, captureInterval);
+        });
     }
 
     // Start the camera feed when the page loads
