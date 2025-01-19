@@ -1,5 +1,5 @@
 # Video Recognition Application
-![Uploading image.png…]()
+![image](https://github.com/user-attachments/assets/cdd383de-1711-453f-9444-0bfa88bcda6f)
 
 
 This repository contains a web-based video recognition application leveraging YOLOv8 for object detection and BLIP-2 for video captioning. The application is designed for real-time frame analysis and caption generation.
