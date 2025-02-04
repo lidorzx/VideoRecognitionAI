@@ -24,7 +24,7 @@ This repository contains a web-based video recognition application leveraging YO
 
 3. Create a virtual environment:
    ```bash
-   python -m venv videorecognitionai
+   python3 -m venv videorecognitionai
    source videorecognitionai/bin/activate
    ```
 
