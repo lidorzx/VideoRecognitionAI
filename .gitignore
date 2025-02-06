@@ -1,0 +1,20 @@
+# Ignore compiled Python files
+__pycache__/
+*.pyc
+*.pyo
+
+# Ignore Virtual Environment (venv)
+venv/
+env/
+
+# Ignore Database File
+captions.db
+
+# Ignore Logs
+alerts.log
+*.log
+
+# Ignore Secret Credentials
+.env
+config.json
+
