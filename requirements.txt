@@ -1,8 +1,8 @@
 flask
-ultralytics
+flask_sqlalchemy
+torch
 transformers
 opencv-python
-torch
-torchvision
-torchaudio
+numpy
+Pillow
 
