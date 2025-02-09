@@ -27,9 +27,9 @@ alert_logger = logging.getLogger("alert_logger")
 EMAIL_ALERTS_ENABLED = True  # Set to False to disable email alerts
 SMTP_SERVER = "smtp.gmail.com"
 SMTP_PORT = 587
-EMAIL_SENDER = "alertsforyouai@gmail.com"
-EMAIL_PASSWORD = "qnlw qast brws hngx"  # 🔴 Use the generated App Password
-EMAIL_RECEIVER = "lidoreliya13@gmail.com"
+EMAIL_SENDER = "mail."
+EMAIL_PASSWORD = "pass"  # 🔴 Use the generated App Password
+EMAIL_RECEIVER = "somemail."
 
 def send_email_alert(caption):
     """Send an email alert when an alert keyword is detected."""
