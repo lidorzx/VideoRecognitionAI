@@ -1,63 +1,130 @@
-/* General Styling with Background Image */
+/* General Styling */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: url("background.jpg") no-repeat center center fixed;
-    background-size: cover;
+    background-color: #181818; /* Dark theme */
     color: white;
     text-align: center;
-    backdrop-filter: blur(3px); /* Slight blur effect */
 }
 
-/* Container Styling */
-.container {
-    max-width: 700px;
-    text-align: center;
+/* Header */
+header {
+    background-color: #222;
+    color: white;
     padding: 20px;
-    background: rgba(0, 0, 0, 0.7);  /* Semi-transparent background */
-    border-radius: 15px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    font-size: 26px;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Video Styling */
-.video-container {
-    border: 3px solid #007BFF;
+/* Main Content */
+.content {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+    background: #222;
     border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Camera Feed */
+.camera-box {
+    position: relative;
+    margin-top: 20px;
+    background: #000;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
     overflow: hidden;
-    margin-bottom: 20px;
-    box-shadow: 0 0 15px rgba(0, 123, 255, 0.3);
 }
 
 video {
     width: 100%;
-    border-radius: 10px;
+    height: auto;
+    border-radius: 15px;
+    border: 3px solid #555;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
 }
 
-/* Caption Box Styling */
-.caption-box {
-    background: rgba(0, 0, 0, 0.8);  /* Dark semi-transparent background */
+/* Caption Overlay */
+.caption-overlay {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffcc00;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 1s ease-in-out;
+}
+/* Alerts Section */
+.alerts {
+    background: rgba(255, 0, 0, 0.2);
     padding: 15px;
-    border-radius: 10px;
-    border: 2px solid #007BFF;
-    box-shadow: 0 0 10px rgba(0, 123, 255, 0.1);
-}
-
-.caption-box p {
-    font-size: 1.4rem;
-    margin: 10px 0;
+    border-radius: 8px;
+    margin-top: 20px;
+    border-left: 5px solid red;
     font-weight: bold;
-    color: white;
+    text-transform: uppercase;
+    box-shadow: 0 4px 10px rgba(255, 0, 0, 0.5);
+    min-height: 50px;
+    text-align: center;
 }
 
-/* Error Message Styling */
-.error {
+/* Alert Messages */
+.alert-message {
     color: red;
+    font-size: 20px;
     font-weight: bold;
-    margin-top: 10px;
+    padding: 10px;
+    margin: 10px auto;
+    border-radius: 5px;
+    background-color: rgba(255, 0, 0, 0.8);
+    text-align: center;
+    animation: fadeIn 1s ease-in-out, fadeOut 1s ease-in-out 7s;
+}
+
+/* Animation for smooth fading */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+/* Button Styling */
+button {
+    background-color: #ffcc00;
+    color: black;
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #ff9900;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .content {
+        width: 90%;
+    }
+    
+    .alerts {
+        font-size: 16px;
+    }
 }
 

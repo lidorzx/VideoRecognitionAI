@@ -1,63 +1,83 @@
 document.addEventListener("DOMContentLoaded", async function () {
-    const videoElement = document.getElementById('cameraFeed');
-    const captionText = document.getElementById('captionText');
-    const errorMessage = document.getElementById('error-message');
-    const speedControl = document.getElementById('speedControl');
-    const speedValue = document.getElementById('speedValue');
+    const videoElement = document.getElementById("cameraFeed");
+    const captionText = document.getElementById("captionText");
+    const alertsContainer = document.getElementById("alerts");
 
-    let captureInterval = 3000;  // Default interval set to 5 seconds
-
-    // Start the camera feed
     async function startCamera() {
         try {
             const stream = await navigator.mediaDevices.getUserMedia({ video: true });
             videoElement.srcObject = stream;
             console.log("✅ Camera access granted.");
-            sendFramesToServer(videoElement);
+            sendFramesToServer();
         } catch (error) {
-            errorMessage.textContent = "Camera access error: " + error.message;
+            console.error("❌ Camera access error:", error);
+            alert("Failed to access camera. Check permissions.");
         }
     }
 
-    // Function to send frames to the Flask server
-    function sendFramesToServer(videoElement) {
-        const canvas = document.createElement('canvas');
-        const context = canvas.getContext('2d');
+    function sendFramesToServer() {
+        const canvas = document.createElement("canvas");
+        const context = canvas.getContext("2d");
 
-        function captureFrame() {
+        setInterval(async () => {
             canvas.width = videoElement.videoWidth;
             canvas.height = videoElement.videoHeight;
             context.drawImage(videoElement, 0, 0, canvas.width, canvas.height);
 
-            const imageData = canvas.toDataURL('image/jpeg');
+            const imageData = canvas.toDataURL("image/jpeg");
 
-            fetch('/process_frame', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ image: imageData })
-            })
-            .then(response => response.json())
-            .then(result => {
-                captionText.innerText = `Caption: ${result.caption}`;
-            })
-            .catch(error => {
+            try {
+                const response = await fetch("/process_frame", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ image: imageData })
+                });
+
+                const result = await response.json();
+
+                console.log("📌 Caption from Flask:", result.caption);
+                console.log("🚨 Alert Status from Flask:", result.alert);
+
+                updateCaption(result.caption);
+
+                if (result.alert === true) {  // Ensure it's read as boolean
+                    displayAlert(result.caption);
+                } else {
+                    clearAlerts();
+                }
+            } catch (error) {
                 console.error("❌ Error sending frames:", error);
-            });
-        }
-
-        // Start the interval with the default delay
-        let intervalID = setInterval(captureFrame, captureInterval);
-
-        // Event listener for speed control input (dynamically change interval)
-        speedControl.addEventListener('input', function () {
-            clearInterval(intervalID);
-            captureInterval = parseInt(speedControl.value);
-            speedValue.innerText = `${captureInterval / 1000} seconds`;
-            intervalID = setInterval(captureFrame, captureInterval);
-        });
+            }
+        }, 2000);
     }
 
-    // Start the camera feed when the page loads
+    function updateCaption(text) {
+        captionText.innerText = text;
+    }
+
+    function displayAlert(caption) {
+        console.log("⚠️ Displaying Alert in UI:", caption);
+
+        alertsContainer.innerHTML = ""; // Clear previous alerts
+
+        const alertMessage = document.createElement("p");
+        alertMessage.classList.add("alert-message");
+        alertMessage.innerText = `⚠️ ALERT: ${caption}`;
+
+        alertsContainer.appendChild(alertMessage);
+
+        // Remove alert after 8 seconds
+        setTimeout(() => {
+            alertMessage.style.opacity = "0";
+            setTimeout(() => alertMessage.remove(), 1000);
+        }, 7000);
+    }
+
+    function clearAlerts() {
+        console.log("✅ No Alert - Clearing UI");
+        alertsContainer.innerHTML = "<p>No alerts detected.</p>";
+    }
+
     startCamera();
 });
 

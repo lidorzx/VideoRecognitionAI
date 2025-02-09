@@ -3,28 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Live Camera Feed with Captions</title>
+    <title>AI Video Recognition</title>
+    <script defer src="{{ url_for('static', filename='script.js') }}"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
+    <header>
+        <h1>AI Video Recognition</h1>
+    </header>
+
     <div class="container">
-        <h1>Live Camera Real-Time Recognition </h1>
-        
-        <!-- Video Feed Section -->
-        <div class="video-container">
-            <video id="cameraFeed" autoplay playsinline></video>
-        </div>
+        <main class="content">
+            <h2>Live Camera Feed</h2>
+            <div class="camera-box">
+                <video id="cameraFeed" autoplay playsinline></video>
+                <div class="caption-overlay">
+                    <p id="captionText" class="caption">Waiting for analysis...</p>
+                </div>
+            </div>
 
-        <!-- Caption Section -->
-        <div class="caption-box">
-            <p><strong>Object Detection:</strong></p>
-            <p id="objectText">Detecting objects...</p>
-            <p><strong>Image Caption:</strong></p>
-            <p id="captionText">Generating captions...</p>
-        </div>
+            <h2>Alerts</h2>
+            <div class="alerts" id="alerts">
+                <p>No alerts detected.</p>
+            </div>
+        </main>
     </div>
-
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
 
